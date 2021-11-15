@@ -1,9 +1,9 @@
 <template>
-  <div>ciao</div>
+  <div class="cards"></div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style></style>
+<style lang="scss"></style>

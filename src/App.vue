@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SiteHeader title="Titolo App" />
+    <SiteHeader />
     <SiteMain />
     <SiteFooter />
   </div>
@@ -21,4 +21,6 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "./assets/scss/common.scss";
+</style>
