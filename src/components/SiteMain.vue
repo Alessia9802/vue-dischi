@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-for="card in cards"></div>
+  <div class="container" v-for="card in cards" :key="card.poster"></div>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
       cards: [],
     };
   },
-};
+},
 
 mounted(){
   axios
@@ -20,7 +20,7 @@ mounted(){
       this.cards = r.data;
       console.log(r.data);
     });
-}
+};
 </script>
 
 <style lang="scss">
