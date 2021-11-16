@@ -7,7 +7,13 @@
     />
     <div class="selection">
       <label class="select_genre" for="dischi">Seleziona un genere</label>
-      <select class="generi" name="genere" id="genere">
+      <select
+        class="generi"
+        name="genere"
+        id="genere"
+        v-for="genre in genres"
+        :key="genre"
+      >
         <option @click="$emit('selectgenre', selectString)" value="Tutti">
           Tutti
         </option>
@@ -23,21 +29,23 @@
 <script>
 export default {
   data() {
+    const genres = ["Rock", "Pop", "Jazz", "Metal"];
+    console.log(genres);
     return {
-      selectString: "",
+      /* selectString: "", */
     };
   },
   methods: {
-    selectgenre(chooseGenre) {
+    /* selectgenre(chooseGenre) {
       console.log(chooseGenre);
-    },
+    }, */
   },
   computed: {
-    takeFilteredGenre() {
+    /* takeFilteredGenre() {
       const filterGenre = this.cards.filter((card) => {
         return cards.genre(this.cards);
       });
-    },
+    }, */
   },
 };
 </script>
