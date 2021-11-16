@@ -8,6 +8,9 @@
     <div class="selection">
       <label class="select_genre" for="dischi">Seleziona un genere</label>
       <select class="generi" name="genere" id="genere">
+        <option @click="$emit('selectgenre', selectString)" value="Tutti">
+          Tutti
+        </option>
         <option value="Rock">Rock</option>
         <option value="Pop">Pop</option>
         <option value="Jazz">Jazz</option>
@@ -18,7 +21,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      selectString: "",
+    };
+  },
+  methods: {
+    selectgenre(chooseGenre) {
+      console.log(chooseGenre);
+    },
+  },
+  computed: {
+    takeFilteredGenre() {
+      const filterGenre = this.cards.filter((card) => {
+        return cards.genre(this.cards);
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss">
