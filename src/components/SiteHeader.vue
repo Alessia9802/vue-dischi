@@ -7,33 +7,40 @@
     />
     <div class="selection">
       <label class="select_genre" for="dischi">Seleziona un genere</label>
-      <select
-        class="generi"
-        name="genere"
-        id="genere"
-        v-for="genre in genres"
-        :key="genre"
-      >
-        <option @click="$emit('selectgenre', selectString)" value="Tutti">
+      <select class="generi" name="genere" id="genere">
+        <option
+          @click="$emit('selectgenre', selectString)"
+          v-for="genre in genres"
+          :key="genre"
+          value="Tutti"
+        >
           Tutti
         </option>
-        <option value="Rock">Rock</option>
-        <option value="Pop">Pop</option>
-        <option value="Jazz">Jazz</option>
-        <option value="Metal">Metal</option>
+        <option value="Rock" v-for="genre in genres" :key="genre">Rock</option>
+        <option value="Pop" v-for="genre in genres" :key="genre">Pop</option>
+        <option value="Jazz" v-for="genre in genres" :key="genre">Jazz</option>
+        <option value="Metal" v-for="genre in genres" :key="genre">
+          Metal
+        </option>
       </select>
     </div>
   </nav>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     const genres = ["Rock", "Pop", "Jazz", "Metal"];
-    console.log(genres);
-    return {
-      /* selectString: "", */
-    };
+    genres.forEach((element) => console.log(element));
+  },
+  mounted() {
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/array/music")
+      .then((r) => {
+        this.cards = r.data.response;
+        console.log(r.data);
+      });
   },
   methods: {
     /* selectgenre(chooseGenre) {
