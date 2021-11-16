@@ -50,23 +50,28 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .card {
   width: 150px;
-  height: 200px;
+  height: 300px;
   background-color: #2e3a46;
-  margin: 2rem;
+  margin: 1.5rem;
   text-align: center;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 .album img {
-  width: 100px;
+  width: 150px;
+  padding: 1rem;
 }
 
 .title_song {
   color: white;
+  text-transform: uppercase;
+  font-weight: 700px;
+  padding-bottom: 0.5rem;
 }
 .song_year,
 .name_author {
